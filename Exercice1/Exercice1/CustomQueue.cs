@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Exercice1
 {
-    class CustomDoubleList<T>
+    class CustomQueue<T>
     {
-        public CustomDoubleList(Node<T> header)
+        public CustomQueue(Node<T> header)
         {
             this.head = header;
         }
