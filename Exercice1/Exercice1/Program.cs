@@ -34,7 +34,7 @@ namespace Exercice1
             Console.WriteLine("\nPRESS ENTER TO CONTINUE...");
             Console.ReadKey();
 
-            Console.WriteLine("\nIn a second part, we enqueue 10 strings : "); //We make a second example with another variable type to proove the generics works
+            Console.WriteLine("\nIn a second part, we enqueue 6 strings : "); //We make a second example with another variable type to proove the generics works
             Console.WriteLine("     - It");
             Console.WriteLine("     - Is");
             Console.WriteLine("     - Raining");

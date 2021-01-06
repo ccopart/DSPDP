@@ -41,36 +41,37 @@ namespace Exercice1
             current.previous = null;
             return current;
         }
+        
+        /*
+        public Node<T> getNode(int index)
+        {
+            int pos = 0;
+            Node<T> current = head;
+            while (index > pos)
+            {
+                pos++;
+                current = current.next;
+            }
+            return current;
+        }
 
-        //public Node<T> getNode(int index)
-        //{
-        //    int pos = 0;
-        //    Node<T> current = head;
-        //    while (index > pos)
-        //    {
-        //        pos++;
-        //        current = current.next;
-        //    }
-        //    return current;
-        //}
-
-        //public void setNode(Node<T> node, int index)
-        //{
-        //    int pos = 0;
-        //    Node<T> current = head;
-        //    Node<T> new_node = new Node<T>(node.data);
-        //    while (pos < index)
-        //    {
-        //        pos++;
-        //        current = current.next;
-        //    }
-        //    current.previous.next = new_node;
-        //    new_node.previous = current.previous;
-        //    new_node.next = current.next;
-        //    if (current.next != null)
-        //        current.next.previous = new_node;
-        //}
-
+        public void setNode(Node<T> node, int index)
+        {
+            int pos = 0;
+            Node<T> current = head;
+            Node<T> new_node = new Node<T>(node.data);
+            while (pos < index)
+            {
+                pos++;
+                current = current.next;
+            }
+            current.previous.next = new_node;
+            new_node.previous = current.previous;
+            new_node.next = current.next;
+            if (current.next != null)
+                current.next.previous = new_node;
+        }
+        */
 
         public void print()
         {
