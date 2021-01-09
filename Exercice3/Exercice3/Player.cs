@@ -60,6 +60,8 @@ namespace Exercice3
             Random rnd = new Random();
             int dice1 = rnd.Next(1, 7);
             int dice2 = rnd.Next(1, 7);
+            Console.WriteLine("Dé 1 : " +dice1);
+            Console.WriteLine("Dé 2 : " + dice2);
             return (dice1, dice2, dice1.Equals(dice2));
         }
     }
