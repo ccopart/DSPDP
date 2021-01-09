@@ -9,6 +9,7 @@ namespace Exercice3
         private string pseudo;
         private int position = 0;
         private State currentState;
+        public int jailPlayCounts = 0;
 
         public DefaultState defaultState = new DefaultState();
         public JailState jailState = new JailState();
