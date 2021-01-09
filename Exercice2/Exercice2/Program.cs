@@ -19,30 +19,30 @@ namespace Exercice2
             return lines;
         }
 
-        public Dictionary<string, int> Map(string line)
+        public static Dictionary<string, int> Map(string line)
         {
             Dictionary<string, int> lineDict = new Dictionary<string, int>();
             var regex = new Regex(@"\b[\s,.-:;']*");
             var words = regex.Split(line).Where(x => !string.IsNullOrEmpty(x));
             foreach (string word in words)
             {
-                if (lineDict.ContainsKey(word)) lineDict[word] = +1;
+                if (lineDict.ContainsKey(word)) lineDict[word] += 1;
                 else lineDict.Add(word, 1);
             }
             return lineDict;
         }
 
-        public Dictionary<string, int> Reduce(Dictionary<string, int> lineDict, Dictionary<string, int> totalDict)
+        public static Dictionary<string, int> Reduce(Dictionary<string, int> lineDict, Dictionary<string, int> totalDict)
         {
             foreach (var i in lineDict)
             {
-                if (totalDict.ContainsKey(i.Key)) totalDict[i.Key] = +1;
-                else totalDict.Add(i.Key, 1);
+                if (totalDict.ContainsKey(i.Key)) totalDict[i.Key] += i.Value;
+                else totalDict.Add(i.Key, i.Value);
             }
             return totalDict;
         }
 
-        public Dictionary<string, int> GetWords()
+        public static Dictionary<string, int> GetWords()
         {
             var totalDict = new Dictionary<string, int>();
             string[] lines = Splitting();
@@ -58,7 +58,7 @@ namespace Exercice2
             return totalDict;
         }
 
-        public void PrintDictionary(Dictionary<string, int> dictionary)
+        public static void PrintDictionary(Dictionary<string, int> dictionary)
         {
             foreach(KeyValuePair<string, int> kvp in dictionary)
             {
@@ -68,12 +68,8 @@ namespace Exercice2
 
         static void Main(string[] args)
         {
-            string[] test = Splitting();
-            for (int i = 0; i < test.Length; i++)
-            {
-                Console.WriteLine(test[i]);
-            }
-            Console.ReadKey();
+            Dictionary<string, int> test = GetWords();
+            PrintDictionary(test);
         }
     }
 }
