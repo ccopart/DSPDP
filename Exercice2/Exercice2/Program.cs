@@ -21,41 +21,49 @@ namespace Exercice2
 
         public Dictionary<string, int> Map(string line)
         {
-            Dictionary<string, int> nombreOccurenceMots = new Dictionary<string, int>();
+            Dictionary<string, int> lineDict = new Dictionary<string, int>();
             var regex = new Regex(@"\b[\s,.-:;']*");
             var words = regex.Split(line).Where(x => !string.IsNullOrEmpty(x));
             foreach (string word in words)
             {
-                if (nombreOccurenceMots.ContainsKey(word)) nombreOccurenceMots[word] = +1;
-                else nombreOccurenceMots.Add(word, 1);
+                if (lineDict.ContainsKey(word)) lineDict[word] = +1;
+                else lineDict.Add(word, 1);
             }
-            return nombreOccurenceMots;
+            return lineDict;
         }
 
-        public Dictionary<string, int> Reduce(Dictionary<string, int> dicoParLigne, Dictionary<string, int> nombreTotalMots)
+        public Dictionary<string, int> Reduce(Dictionary<string, int> lineDict, Dictionary<string, int> totalDict)
         {
-            foreach (var i in dicoParLigne)
+            foreach (var i in lineDict)
             {
-                if (nombreTotalMots.ContainsKey(i.Key)) nombreTotalMots[i.Key] = +1;
-                else nombreTotalMots.Add(i.Key, 1);
+                if (totalDict.ContainsKey(i.Key)) totalDict[i.Key] = +1;
+                else totalDict.Add(i.Key, 1);
             }
-            return nombreTotalMots;
+            return totalDict;
         }
 
         public Dictionary<string, int> GetWords()
         {
-            var result = new Dictionary<string, int>();
+            var totalDict = new Dictionary<string, int>();
             string[] lines = Splitting();
             Parallel.ForEach(lines, line => {
                 Dictionary<string, int> lineDict = Map(line);
-                lock(result)
+                lock(totalDict)
                 {
-                    Reduce(lineDict, result);
+                    Reduce(lineDict, totalDict);
                 }
             }
             );
-            result.OrderByDescending(kv => kv.Value).Take((int)TopCount).ToDictionary(kv => kv.Key, kv => kv.Value);
-            return result;
+            //result.OrderByDescending(kv => kv.Value).Take((int)TopCount).ToDictionary(kv => kv.Key, kv => kv.Value);
+            return totalDict;
+        }
+
+        public void PrintDictionary(Dictionary<string, int> dictionary)
+        {
+            foreach(KeyValuePair<string, int> kvp in dictionary)
+            {
+                Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
+            }
         }
 
         static void Main(string[] args)
