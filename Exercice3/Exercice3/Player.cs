@@ -10,6 +10,16 @@ namespace Exercice3
         int position = 0;
         bool jail = false;
 
+        public Player(string pseudo)
+        {
+            this.pseudo = pseudo;
+        }
+
+        public void IncrementPosition(Tuple<int,int> dices)
+        {
+            this.position = (position + dices.Item1 + dices.Item2) % 40;
+        }
+
         public string GetPseudo()
         {
             return pseudo;
