@@ -11,7 +11,7 @@ namespace Exercice3
             int numberOfPlayers =0;
             while (!rightNumbersOfPlayers)
             {
-                Console.Write("\n\nCombien de joueur y a-t-il ? ");
+                Console.Write("\n\nCombien de joueurs y a-t-il ? ");
                 string numberOfPlayersStr = Console.ReadLine();
                 int output = 0;
                 if (int.TryParse(numberOfPlayersStr, out output) && Convert.ToInt32(numberOfPlayersStr) >1 && Convert.ToInt32(numberOfPlayersStr) <= 8)
@@ -26,20 +26,19 @@ namespace Exercice3
             string nameInput;
             for(int i = 1; i<=numberOfPlayers; i++)
             {
-                Console.Write("Entrez le nom du joueurs " + i + " : ");
+                Console.Write("Entrez le nom du joueur " + i + " : ");
                 nameInput = Console.ReadLine();
                 players[i-1] = new Player(nameInput);
             }
-            Console.WriteLine();
+            Console.WriteLine("\n");
             bool gameContinues = true;
             while (gameContinues)
             {
                 foreach(Player p in players)
                 {
-                    Console.WriteLine("Appuyez sur ENTREE pour lancer les dés de "+ p.GetPseudo() + " qui se situe actuellement sur la case "+p.GetPosition()+"...");
+                    Console.WriteLine("Appuyez sur ENTREE pour lancer les dés de "+ p.GetPseudo() + " qui se situe actuellement sur la case "+p.GetPosition()+"...\n");
                     Console.ReadKey();
                     p.UpdateState();
-                    Console.WriteLine("\n");
                 }
             }
         }
