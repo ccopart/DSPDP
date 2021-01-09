@@ -50,5 +50,9 @@ namespace Exercice3
         {
             this.currentState = currentState;
         }
+        public void UpdateState()
+        {
+            currentState = currentState.DoState(this);
+        }
     }
 }
