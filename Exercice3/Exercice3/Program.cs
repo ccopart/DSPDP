@@ -28,7 +28,7 @@ namespace Exercice3
             {
                 Console.Write("Entrer le nom du joueur " + i + " : ");
                 nameInput = Console.ReadLine();
-                players[i] = new Player(nameInput);
+                players[i-1] = new Player(nameInput);
             }
 
             bool gameContinues = true;
