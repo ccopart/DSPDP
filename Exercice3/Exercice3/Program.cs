@@ -24,9 +24,9 @@ namespace Exercice3
             }
             Player[] players = new Player[numberOfPlayers];
             string nameInput;
-            for(int i = 0; i<numberOfPlayers; i++)
+            for(int i = 1; i<=numberOfPlayers; i++)
             {
-                Console.Write("Entrer le nom du joueur " + i+1 + " : ");
+                Console.Write("Entrer le nom du joueur " + i + " : ");
                 nameInput = Console.ReadLine();
                 players[i] = new Player(nameInput);
             }
