@@ -54,7 +54,6 @@ namespace Exercice2
                 }
             }
             );
-            //result.OrderByDescending(kv => kv.Value).Take((int)TopCount).ToDictionary(kv => kv.Key, kv => kv.Value);
             return totalDict;
         }
 
@@ -65,7 +64,6 @@ namespace Exercice2
                 Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
             }
         }
-
         static void Main(string[] args)
         {
             Dictionary<string, int> test = GetWords();
