@@ -6,7 +6,7 @@ namespace Exercice3
     {
         static void Main(string[] args)
         {
-            bool gameContinues = true;
+            
             bool rightNumbersOfPlayers = false;
             int numberOfPlayers =0;
             while (!rightNumbersOfPlayers)
@@ -35,13 +35,20 @@ namespace Exercice3
             //{
             //    Console.WriteLine(p.GetPseudo());
             //}
-            
+
+            bool gameContinues = true;
             while (gameContinues)
             {
-
+                foreach(Player p in players)
+                {
+                    Console.WriteLine("Appuyer sur ENTREE pour lancer les dés de "+ p.GetPseudo() + "...");
+                    Console.ReadKey();
+                    var dices = RollTheDices();
+                    //c'est la que je vais tout faire
+                }
             }
 
-            var dices = RollTheDices();
+            
         }
 
         public static (int, int) RollTheDices()
