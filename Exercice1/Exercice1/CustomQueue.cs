@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Exercice1
 {
-    class CustomQueue<T>
+    public class CustomQueue<T>
     {
         public CustomQueue(Node<T> header)
         {
             this.head = header;
         }
 
-        Node<T> head { get; set; }
+        public Node<T> head { get; set; }
 
         public void Enqueue(Node<T> node)
         {
@@ -41,7 +41,12 @@ namespace Exercice1
             current.previous = null;
             return current;
         }
-        
+
+        public Iterator<T> GetIterator()
+        {
+            return new CustomQueueIterator<T>(this);
+        }
+
         /*
         public Node<T> getNode(int index)
         {

@@ -29,7 +29,17 @@ namespace Exercice1
             temp = l.DequeueAndRetreive();
 
             Console.WriteLine("Here is how our final queue looks like : ");
-            l.print();
+            //l.print();
+            Iterator<int> i = l.GetIterator();
+            string s = "[";
+            while (i.HasNext())
+            {
+                i.Next();
+                s += i.Current() + " ; ";
+            }
+            s = s.Remove(s.Length - 3);
+            s += "]";
+            Console.WriteLine(s);
 
             Console.WriteLine("\nPRESS ENTER TO CONTINUE...");
             Console.ReadKey();
@@ -55,7 +65,17 @@ namespace Exercice1
             temp2 = l2.DequeueAndRetreive();
 
             Console.WriteLine("Here is how our final queue looks like : ");
-            l2.print();
+            //l2.print();
+            Iterator<string> i2 = l2.GetIterator();
+            string s2 = "[";
+            while (i2.HasNext())
+            {
+                i2.Next();
+                s2 += i2.Current() + " ; ";
+            }
+            s2 = s2.Remove(s2.Length - 3);
+            s2 += "]";
+            Console.WriteLine(s2);
 
             Console.WriteLine("\nPRESS ENTER TO QUIT...");
             Console.ReadKey();

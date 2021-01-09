@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Exercice1
 {
-    class Node<T> : IEquatable<Node<T>>
+    public class Node<T> : IEquatable<Node<T>>
     {
         public Node(T data)
         {
