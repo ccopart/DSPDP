@@ -21,13 +21,13 @@ namespace Exercice3
                     Console.WriteLine(player.GetPseudo() + " a passé 3 tours en prison, il est libre !");
                 }
                 player.IncrementPosition(play);
-                Console.WriteLine(player.GetPseudo() + " avance jusqu'à la case " + player.GetPosition() + "\n"); 
+                Console.WriteLine(player.GetPseudo() + " avance jusqu'à la case " + player.GetPosition()); 
                 player.jailPlayCounts = 0;
                 return player.defaultState;
             }
             else
             {
-                Console.WriteLine(player.GetPseudo() + " n'a pas fait de double, il reste en prison.\n");
+                Console.WriteLine(player.GetPseudo() + " n'a pas fait de double, il reste en prison.");
                 return player.jailState;
             }
         }

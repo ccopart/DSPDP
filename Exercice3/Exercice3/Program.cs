@@ -30,13 +30,12 @@ namespace Exercice3
                 nameInput = Console.ReadLine();
                 players[i-1] = new Player(nameInput);
             }
-            Console.WriteLine("\n");
             bool gameContinues = true;
             while (gameContinues)
             {
                 foreach(Player p in players)
                 {
-                    Console.WriteLine("Appuyez sur ENTREE pour lancer les dés de "+ p.GetPseudo() + " qui se situe actuellement sur la case "+p.GetPosition()+"...\n");
+                    Console.WriteLine("\n\nAppuyez sur ENTREE pour lancer les dés de "+ p.GetPseudo() + " qui se situe actuellement sur la case "+p.GetPosition()+"...");
                     Console.ReadKey();
                     p.UpdateState();
                 }
