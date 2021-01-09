@@ -4,15 +4,20 @@ using System.Text;
 
 namespace Exercice3
 {
-    class Player
+    public class Player
     {
-        string pseudo;
-        int position = 0;
-        bool jail = false;
+        private string pseudo;
+        private int position = 0;
+        private State currentState;
+
+        private DefaultState defaultState = new DefaultState();
+        private JailState jailState = new JailState();
+
 
         public Player(string pseudo)
         {
             this.pseudo = pseudo;
+            currentState = defaultState;
         }
 
         public void IncrementPosition(Tuple<int,int> dices)
@@ -37,13 +42,13 @@ namespace Exercice3
 
             this.position = position;
         }
-        public bool GetJail()
+        public State GetCurrentState()
         {
-            return jail;
+            return currentState;
         }
-        public void SetJail(bool jail)
+        public void SetCurrentState(State currentState)
         {
-            this.jail = jail;
+            this.currentState = currentState;
         }
     }
 }
