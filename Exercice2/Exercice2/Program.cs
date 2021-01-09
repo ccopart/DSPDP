@@ -15,7 +15,7 @@ namespace Exercice2
         
         static string [] Splitting () 
         {
-            string [] lines = System.IO.File.ReadAllLines("text.txt", System.Text.Encoding.GetEncoding("iso-8859-1"));
+            string [] lines = System.IO.File.ReadAllLines("text.txt", System.Text.Encoding.GetEncoding("UTF-8"));
             return lines;
         }
 
