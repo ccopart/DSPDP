@@ -54,12 +54,12 @@ namespace Exercice3
         {
             currentState = currentState.DoState(this);
         }
-        public (int, int) RollTheDices()
+        public (int, int, bool) RollTheDices()
         {
             Random rnd = new Random();
             int dice1 = rnd.Next(1, 7);
             int dice2 = rnd.Next(1, 7);
-            return (dice1, dice2);
+            return (dice1, dice2, dice1.Equals(dice2));
         }
     }
 }
