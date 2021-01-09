@@ -57,16 +57,11 @@ namespace Exercice3
         }
         public (int, int, bool) RollTheDices()
         {
-            //Random rnd = new Random();
-            //int dice1 = rnd.Next(1, 7);
-            //int dice2 = rnd.Next(1, 7);
-            //Console.WriteLine("Dé 1 : " +dice1);
-            //Console.WriteLine("Dé 2 : " + dice2);
-            Console.Write("\nEntre valeur dé1");
-            int dice1 = Convert.ToInt32(Console.ReadLine());
-            Console.Write("\nEntre valeur dé2");
-            int dice2 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("\n");
+            Random rnd = new Random();
+            int dice1 = rnd.Next(1, 7);
+            int dice2 = rnd.Next(1, 7);
+            Console.WriteLine("Dé 1 : " + dice1);
+            Console.WriteLine("Dé 2 : " + dice2);
             return (dice1, dice2, dice1.Equals(dice2));
         }
     }

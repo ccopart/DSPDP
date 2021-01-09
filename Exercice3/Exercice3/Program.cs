@@ -6,7 +6,7 @@ namespace Exercice3
     {
         static void Main(string[] args)
         {
-            
+            Console.WriteLine("\nBienvenue dans le Monopoly : 'OnlyBoard'.");
             bool rightNumbersOfPlayers = false;
             int numberOfPlayers =0;
             while (!rightNumbersOfPlayers)
@@ -14,7 +14,7 @@ namespace Exercice3
                 Console.Write("\n\nCombien de joueur y a-t-il ? ");
                 string numberOfPlayersStr = Console.ReadLine();
                 int output = 0;
-                if (int.TryParse(numberOfPlayersStr, out output) && Convert.ToInt32(numberOfPlayersStr) >1 && Convert.ToInt32(numberOfPlayersStr) < 8)
+                if (int.TryParse(numberOfPlayersStr, out output) && Convert.ToInt32(numberOfPlayersStr) >1 && Convert.ToInt32(numberOfPlayersStr) <= 8)
                 {
                     rightNumbersOfPlayers = true;
                     numberOfPlayers = Convert.ToInt32(numberOfPlayersStr);
@@ -26,26 +26,22 @@ namespace Exercice3
             string nameInput;
             for(int i = 1; i<=numberOfPlayers; i++)
             {
-                Console.Write("Entrer le nom du joueur " + i + " : ");
+                Console.Write("Entrez le nom du joueurs " + i + " : ");
                 nameInput = Console.ReadLine();
                 players[i-1] = new Player(nameInput);
             }
-
+            Console.WriteLine();
             bool gameContinues = true;
             while (gameContinues)
             {
                 foreach(Player p in players)
                 {
-                    Console.WriteLine("Appuyer sur ENTREE pour lancer les dés de "+ p.GetPseudo() + " qui se situe actuellement sur la case "+p.GetPosition()+"...");
+                    Console.WriteLine("Appuyez sur ENTREE pour lancer les dés de "+ p.GetPseudo() + " qui se situe actuellement sur la case "+p.GetPosition()+"...");
                     Console.ReadKey();
                     p.UpdateState();
                     Console.WriteLine("\n");
                 }
             }
-
-            
         }
-
-        
     }
 }
