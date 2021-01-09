@@ -20,7 +20,7 @@ namespace Exercice3
             currentState = defaultState;
         }
 
-        public void IncrementPosition(Tuple<int,int> dices)
+        public void IncrementPosition((int, int, bool) dices)
         {
             this.position = (position + dices.Item1 + dices.Item2) % 40;
         }

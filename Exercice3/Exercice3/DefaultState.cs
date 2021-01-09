@@ -8,7 +8,13 @@ namespace Exercice3
     {
         public State DoState(Player player)
         {
-            var dices = player.RollTheDices();
+            bool continuePlaying = true;
+            while (continuePlaying)
+            {
+                var dices = player.RollTheDices();
+                player.IncrementPosition(dices);
+            }
+           
 
             return player.defaultState;
         }
