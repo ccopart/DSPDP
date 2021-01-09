@@ -47,7 +47,7 @@ namespace Exercice2
             var totalDict = new Dictionary<string, int>();
             string[] lines = Splitting();
             Parallel.ForEach(lines, line => {
-                Dictionary<string, int> lineDict = Map(line);
+                Dictionary<string, int> lineDict = Map(line.ToUpper());
                 lock(totalDict)
                 {
                     Reduce(lineDict, totalDict);
