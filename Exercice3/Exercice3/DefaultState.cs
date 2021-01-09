@@ -4,11 +4,13 @@ using System.Text;
 
 namespace Exercice3
 {
-    class DefaultState : State
+    public class DefaultState : State
     {
         public State DoState(Player player)
         {
+            var dices = player.RollTheDices();
 
+            return player.defaultState;
         }
     }
 }

@@ -43,21 +43,13 @@ namespace Exercice3
                 {
                     Console.WriteLine("Appuyer sur ENTREE pour lancer les dés de "+ p.GetPseudo() + "...");
                     Console.ReadKey();
-                    var dices = RollTheDices();
-                    //c'est la que je vais tout faire
+                    p.UpdateState();
                 }
             }
 
             
         }
 
-        public static (int, int) RollTheDices()
-        {
-            Random rnd = new Random();
-            int dice1 = rnd.Next(1, 7);
-            int dice2 = rnd.Next(1, 7);
-
-            return (dice1, dice2);
-        }
+        
     }
 }

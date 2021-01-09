@@ -10,8 +10,8 @@ namespace Exercice3
         private int position = 0;
         private State currentState;
 
-        private DefaultState defaultState = new DefaultState();
-        private JailState jailState = new JailState();
+        public DefaultState defaultState = new DefaultState();
+        public JailState jailState = new JailState();
 
 
         public Player(string pseudo)
@@ -53,6 +53,13 @@ namespace Exercice3
         public void UpdateState()
         {
             currentState = currentState.DoState(this);
+        }
+        public (int, int) RollTheDices()
+        {
+            Random rnd = new Random();
+            int dice1 = rnd.Next(1, 7);
+            int dice2 = rnd.Next(1, 7);
+            return (dice1, dice2);
         }
     }
 }

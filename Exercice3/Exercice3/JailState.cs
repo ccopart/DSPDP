@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Exercice3
 {
-    class JailState : State
+    public class JailState : State
     {
         public State DoState(Player player)
         {
