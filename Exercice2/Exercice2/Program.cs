@@ -61,12 +61,16 @@ namespace Exercice2
         {
             foreach(KeyValuePair<string, int> kvp in dictionary)
             {
-                Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
+                Console.WriteLine("{0} : {1} fois", kvp.Key, kvp.Value);
             }
         }
         static void Main(string[] args)
         {
             Dictionary<string, int> test = GetWords();
+            Console.WriteLine("Bonjour, bienvenue dans notre compteur de mots.\n");
+            Console.WriteLine("Dans notre fichier texte nous avons entré les paroles de la musique Harder Better Faster Stronger des Daft Punks.");
+            Console.WriteLine("Notre programme va compter le nombre de mot dans cette musique.\n");
+            Console.WriteLine("Voici le nombre d'apparition de chaque mot : \n");
             PrintDictionary(test);
         }
     }
