@@ -11,7 +11,7 @@ namespace Exercice3
             int numberOfPlayers =0;
             while (!rightNumbersOfPlayers)
             {
-                Console.Write("\n\nHow many players will there be ? ");
+                Console.Write("\n\nCombien de joueur y a-t-il ? ");
                 string numberOfPlayersStr = Console.ReadLine();
                 int output = 0;
                 if (int.TryParse(numberOfPlayersStr, out output) && Convert.ToInt32(numberOfPlayersStr) >1 && Convert.ToInt32(numberOfPlayersStr) < 8)
@@ -20,30 +20,26 @@ namespace Exercice3
                     numberOfPlayers = Convert.ToInt32(numberOfPlayersStr);
                     Console.WriteLine("\n\n");
                 }
-                else Console.WriteLine("\n\nERROR : You should write a number between 2 and 8 !");
+                else Console.WriteLine("\n\nERREUR : Vous devez écrire un nombre entre 2 et 8 !");
             }
             Player[] players = new Player[numberOfPlayers];
             string nameInput;
             for(int i = 0; i<numberOfPlayers; i++)
             {
-                Console.Write("Write the name of player number " + i + " : ");
+                Console.Write("Entrer le nom du joueur " + i+1 + " : ");
                 nameInput = Console.ReadLine();
                 players[i] = new Player(nameInput);
             }
-
-            //foreach(Player p in players)
-            //{
-            //    Console.WriteLine(p.GetPseudo());
-            //}
 
             bool gameContinues = true;
             while (gameContinues)
             {
                 foreach(Player p in players)
                 {
-                    Console.WriteLine("Appuyer sur ENTREE pour lancer les dés de "+ p.GetPseudo() + "...");
+                    Console.WriteLine("Appuyer sur ENTREE pour lancer les dés de "+ p.GetPseudo() + " qui se situe actuellement sur la case "+p.GetPosition()+"...");
                     Console.ReadKey();
                     p.UpdateState();
+                    Console.WriteLine("\n");
                 }
             }
 
