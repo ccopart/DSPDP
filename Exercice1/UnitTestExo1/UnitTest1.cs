@@ -8,7 +8,7 @@ namespace UnitTestExo1
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestEnqueueDequeueRetreive()
         {
             CustomQueue<int> customQueueInt = new CustomQueue<int>(new Node<int>(14));
             customQueueInt.Enqueue(new Node<int>(18));

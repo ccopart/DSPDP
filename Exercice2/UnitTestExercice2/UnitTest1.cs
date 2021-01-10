@@ -15,7 +15,7 @@ namespace UnitTestExercice2
     {
         string line = "un deux trois trois quatre deux trois quatre quatre quatre";
         [TestMethod]
-        public void TestMethod1()
+        public void TestMapping()
         {
             
             Dictionary<string, int> result = Program.Map(line);
@@ -25,7 +25,7 @@ namespace UnitTestExercice2
             Assert.AreEqual(result["quatre"], 4);
         }
         [TestMethod]
-        public void TestMethod2()
+        public void TestReducing()
         {
             Dictionary<string, int> finalResult = new Dictionary<string, int>();
             finalResult.Add("un", 4);
