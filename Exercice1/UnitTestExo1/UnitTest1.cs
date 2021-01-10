@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Exercice1;
 
+
 namespace UnitTestExo1
 {
     [TestClass]
@@ -11,10 +12,12 @@ namespace UnitTestExo1
         {
             CustomQueue<int> customQueueInt = new CustomQueue<int>(new Node<int>(14));
             customQueueInt.Enqueue(new Node<int>(18));
-            foreach(var node in customQueueInt)
-            {
-                Assert.AreEqual(node, 14);//the first iteration should be true, then false
-            }
+
+            Iterator<int> i = new CustomQueueIterator<int>(customQueueInt);
+            i.Next();
+            Assert.AreEqual(i.Current(), 14);
+            i.Next();
+            Assert.AreEqual(i.Current(), 18);
 
             Node<int> temp;
             temp = customQueueInt.DequeueAndRetreive();
