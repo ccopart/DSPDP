@@ -10,6 +10,7 @@ namespace Exercice3UnitTest
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }
