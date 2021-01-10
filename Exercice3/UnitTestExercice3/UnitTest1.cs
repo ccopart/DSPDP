@@ -17,10 +17,16 @@ namespace UnitTestExercice3
         [TestMethod]
         public void TestMethod2()
         {
-            (int, int, bool) play = player.RollTheDices();
-            Assert.AreEqual(play.GetType(), typeof((int, int, bool)));
-            Assert.IsTrue(play.Item1 >= 1 && play.Item1 <= 6);
-            Assert.IsTrue(play.Item2 >= 1 && play.Item2 <= 6);
+            (int, int, bool) dices = player.RollTheDices();
+            Assert.AreEqual(dices.GetType(), typeof((int, int, bool)));
+            Assert.IsTrue(dices.Item1 >= 1 && dices.Item1 <= 6);
+            Assert.IsTrue(dices.Item2 >= 1 && dices.Item2 <= 6);
+        }
+        [TestMethod]
+        public void TestMethod3()
+        {
+            player.IncrementPosition((3, 6, false));
+            Assert.AreEqual(player.GetPosition(), 9);
         }
     }
 }
