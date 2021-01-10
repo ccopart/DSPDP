@@ -22,6 +22,23 @@ namespace Exercice3
                 }
                 else Console.WriteLine("\n\nERREUR : Vous devez écrire un nombre entre 2 et 8 !");
             }
+
+            bool rightNumbersOfTurns = false;
+            int numberOfTurns = 0;
+            while (!rightNumbersOfTurns)
+            {
+                Console.Write("Combien de tours doit-il y avoir ? ");
+                string numberOfTurnsStr = Console.ReadLine();
+                int output = 0;
+                if (int.TryParse(numberOfTurnsStr, out output) && Convert.ToInt32(numberOfTurnsStr) > 0 && Convert.ToInt32(numberOfTurnsStr) <= 50)
+                {
+                    rightNumbersOfTurns = true;
+                    numberOfTurns = Convert.ToInt32(numberOfTurnsStr);
+                    Console.WriteLine("\n\n");
+                }
+                else Console.WriteLine("\n\nERREUR : Vous devez écrire un nombre entre 1 et 50 !");
+            }
+
             Player[] players = new Player[numberOfPlayers];
             string nameInput;
             for(int i = 1; i<=numberOfPlayers; i++)
@@ -31,7 +48,7 @@ namespace Exercice3
                 players[i-1] = new Player(nameInput);
             }
             bool gameContinues = true;
-            while (gameContinues)
+            while (gameContinues && numberOfTurns >0)
             {
                 foreach(Player p in players)
                 {
@@ -39,7 +56,12 @@ namespace Exercice3
                     Console.ReadKey();
                     p.UpdateState();
                 }
+                numberOfTurns--;
             }
+            Console.WriteLine("\n\nLe nombre de tour maximum a été atteint.");
+            Console.WriteLine("Appuyer sur ENTREE pour quitter...");
+            Console.ReadKey();
+            Console.WriteLine("\nAu revoir");
         }
     }
 }
