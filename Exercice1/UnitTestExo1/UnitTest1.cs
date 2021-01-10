@@ -15,12 +15,11 @@ namespace UnitTestExo1
 
             Iterator<int> i = new CustomQueueIterator<int>(customQueueInt);
             i.Next();
-            Assert.AreEqual(i.Current(), 14);
-            i.Next();
             Assert.AreEqual(i.Current(), 18);
+            i.Next();
+            Assert.AreEqual(i.Current(), 14);
 
             Node<int> temp;
-            temp = customQueueInt.DequeueAndRetreive();
             temp = customQueueInt.DequeueAndRetreive();
 
             customQueueInt.Enqueue(new Node<int>(108));
@@ -38,7 +37,7 @@ namespace UnitTestExo1
             {
                 nbrNodes++;
             }
-            Assert.AreEqual(nbrNodes, 2);
+            Assert.AreEqual(nbrNodes, 3);
         }
     }
 }
