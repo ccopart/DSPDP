@@ -9,7 +9,6 @@ namespace UnitTestExercice2
         [TestMethod]
         public void TestMethod1()
         {
-            
         }
     }
 }

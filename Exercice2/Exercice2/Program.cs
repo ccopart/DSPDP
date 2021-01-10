@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace Exercice2
 {
-    class Program
+    public class Program
     {
         
         static string [] Splitting () 
