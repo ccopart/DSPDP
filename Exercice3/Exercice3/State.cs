@@ -7,6 +7,5 @@ namespace Exercice3
     public interface State
     {
         State DoState(Player player);
-
     }
 }
