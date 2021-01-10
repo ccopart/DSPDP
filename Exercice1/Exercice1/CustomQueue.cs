@@ -42,54 +42,14 @@ namespace Exercice1
             return current;
         }
 
-        public Iterator<T> GetIterator()
+        public IEnumerator<T> GetEnumerator()
         {
-            return new CustomQueueIterator<T>(this);
-        }
-
-        /*
-        public Node<T> getNode(int index)
-        {
-            int pos = 0;
-            Node<T> current = head;
-            while (index > pos)
+            Iterator<T> i = new CustomQueueIterator<T>(this);
+            while (i.HasNext())
             {
-                pos++;
-                current = current.next;
+                i.Next();
+                yield return i.Current();
             }
-            return current;
-        }
-
-        public void setNode(Node<T> node, int index)
-        {
-            int pos = 0;
-            Node<T> current = head;
-            Node<T> new_node = new Node<T>(node.data);
-            while (pos < index)
-            {
-                pos++;
-                current = current.next;
-            }
-            current.previous.next = new_node;
-            new_node.previous = current.previous;
-            new_node.next = current.next;
-            if (current.next != null)
-                current.next.previous = new_node;
-        }
-        */
-
-        public void print()
-        {
-            string s = "[";
-            Node<T> current = head;
-            while (current != null)
-            {
-                s += current.data + " ; ";
-                current = current.next;
-            }
-            s = s.Remove(s.Length - 3);
-            s += "]";
-            Console.WriteLine(s);
         }
     }
 }

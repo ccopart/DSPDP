@@ -18,28 +18,25 @@ namespace Exercice1
             Console.WriteLine("     - 45");
             Console.WriteLine("     - 303\n");
 
-            CustomQueue<int> l = new CustomQueue<int>(new Node<int>(14));
-            l.Enqueue(new Node<int>(18));
-            l.Enqueue(new Node<int>(39));
-            l.Enqueue(new Node<int>(45));
-            l.Enqueue(new Node<int>(303));
+            CustomQueue<int> customQueueInt = new CustomQueue<int>(new Node<int>(14));//Creation  of the customQueue with integers inside. The first one will be 14
+            customQueueInt.Enqueue(new Node<int>(18));//We can add nodes with Enqueue
+            customQueueInt.Enqueue(new Node<int>(39));
+            customQueueInt.Enqueue(new Node<int>(45));
+            customQueueInt.Enqueue(new Node<int>(303));
 
             Console.WriteLine("Then we dequeue 2 times.\n");
-            Node<int> temp = l.DequeueAndRetreive(); //We created a temporary variable because it is asked to retreive the value when we deuqueue it
-            temp = l.DequeueAndRetreive();
+            Node<int> temp = customQueueInt.DequeueAndRetreive(); //We created a temporary variable because it is asked to retreive the value when we deuqueue it
+            temp = customQueueInt.DequeueAndRetreive();
 
             Console.WriteLine("Here is how our final queue looks like : ");
-            //l.print();
-            Iterator<int> i = l.GetIterator();
-            string s = "[";
-            while (i.HasNext())
+            string result = "[";
+            foreach (var node in customQueueInt)//Because we created a function "GetEnumerator", we can use a foreach loop to access to all the nodes of the queue.
             {
-                i.Next();
-                s += i.Current() + " ; ";
+                result += node + " ; ";
             }
-            s = s.Remove(s.Length - 3);
-            s += "]";
-            Console.WriteLine(s);
+            result = result.Remove(result.Length - 3);
+            result += "]";
+            Console.WriteLine(result);//We stored the result in a string to clear a bit the output
 
             Console.WriteLine("\nPRESS ENTER TO CONTINUE...");
             Console.ReadKey();
@@ -52,30 +49,27 @@ namespace Exercice1
             Console.WriteLine("     - And");
             Console.WriteLine("     - Dogs\n");
 
-            CustomQueue<string> l2 = new CustomQueue<string>(new Node<string>("It"));
-            l2.Enqueue(new Node<string>("Is"));
-            l2.Enqueue(new Node<string>("Raining"));
-            l2.Enqueue(new Node<string>("Cats"));
-            l2.Enqueue(new Node<string>("And"));
-            l2.Enqueue(new Node<string>("Dogs"));
+            CustomQueue<string> customQueueString = new CustomQueue<string>(new Node<string>("It"));//We do the same things as above with strings
+            customQueueString.Enqueue(new Node<string>("Is"));
+            customQueueString.Enqueue(new Node<string>("Raining"));
+            customQueueString.Enqueue(new Node<string>("Cats"));
+            customQueueString.Enqueue(new Node<string>("And"));
+            customQueueString.Enqueue(new Node<string>("Dogs"));
 
             Console.WriteLine("Then we dequeue 3 times.\n");
-            Node<string> temp2 = l2.DequeueAndRetreive();
-            temp2 = l2.DequeueAndRetreive();
-            temp2 = l2.DequeueAndRetreive();
+            Node<string> temp2 = customQueueString.DequeueAndRetreive();
+            temp2 = customQueueString.DequeueAndRetreive();
+            temp2 = customQueueString.DequeueAndRetreive();
 
             Console.WriteLine("Here is how our final queue looks like : ");
-            //l2.print();
-            Iterator<string> i2 = l2.GetIterator();
-            string s2 = "[";
-            while (i2.HasNext())
+            string result2 = "[";
+            foreach (var node in customQueueString)
             {
-                i2.Next();
-                s2 += i2.Current() + " ; ";
+                result2 += node + " ; ";
             }
-            s2 = s2.Remove(s2.Length - 3);
-            s2 += "]";
-            Console.WriteLine(s2);
+            result2 = result2.Remove(result2.Length - 3);
+            result2 += "]";
+            Console.WriteLine(result2);
 
             Console.WriteLine("\nPRESS ENTER TO QUIT...");
             Console.ReadKey();
